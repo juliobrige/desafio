@@ -2,7 +2,7 @@ from django.db import models
 from django.core.validators import RegexValidator
 
 class Grupo(models.TextChoices):
-    VINGADORES = 'v', 'Vingadores'
+    VINGADORES = 'V', 'Vingadores'
     LIGA_DA_JUSTICA = 'LJ', 'Liga da Justiça'
 
 class Usuario(models.Model):

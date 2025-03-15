@@ -1,31 +1,37 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block 'body' %}
-
-
-<div class = "container">
-   <form action="{% url 'cadastro'%}" method="POST">{% csrf_token %}
-    <br>
-    <div calss = "mb-3">
-    {{form.nome.as_field_group}}
-
-    </div>
-    <div calss = "mb-3">
-        {{form.email.as_field_group}}
-        
-    </div>
-    <div calss = "mb-3">
-        {{form.telefone.as_field_group}}
-        
-    </div>
-    <div calss = "mb-3">
-        {{form.grupo.as_field_group}}   
-    </div>
-    <input type="submit" class="btn btn-success" value= cadastrar>
-</form>
-
+{% block content %}
+<div class="form-container">
+    <h2 class="text-center">Cadastro de Usuário</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="id_nome" class="form-label">Nome</label>
+            {{ form.nome }}
+        </div>
+        <div class="mb-3">
+            <label for="id_email" class="form-label">Email</label>
+            {{ form.email }}
+        </div>
+        <div class="mb-3">
+            <label for="id_telefone" class="form-label">Telefone</label>
+            {{ form.telefone }}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Grupo</label>
+            {{ form.grupo }}
+        </div>
+        <button type="submit" class="btn btn-primary w-100">
+            <i class="fas fa-user-plus"></i> Cadastrar
+        </button>
+    </form>
 </div>
 
-
-
-{% endblock 'body' %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#id_telefone').mask('(00) 0000-0000');
+    });
+</script>
+{% endblock %}
