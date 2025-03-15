@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block 'body' %}
+
+
+<div class = "container">
+   <form action="{% url 'cadastro'%}" method="POST">{% csrf_token %}
+    <br>
+    <div calss = "mb-3">
+    {{form.nome.as_field_group}}
+
+    </div>
+    <div calss = "mb-3">
+        {{form.email.as_field_group}}
+        
+    </div>
+    <div calss = "mb-3">
+        {{form.telefone.as_field_group}}
+        
+    </div>
+    <div calss = "mb-3">
+        {{form.grupo.as_field_group}}   
+    </div>
+    <input type="submit" class="btn btn-success" value= cadastrar>
+</form>
+
+</div>
+
+
+
+{% endblock 'body' %}
